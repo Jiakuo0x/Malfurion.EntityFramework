@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{9B342C84-199C-4ADF-9349-37C0F9CE44F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Malfurion.EntityFramework", "src\Malfurion.EntityFramework.csproj", "{669AD9DD-F59F-4017-9382-8B52F7956251}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B342C84-199C-4ADF-9349-37C0F9CE44F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B342C84-199C-4ADF-9349-37C0F9CE44F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B342C84-199C-4ADF-9349-37C0F9CE44F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B342C84-199C-4ADF-9349-37C0F9CE44F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{669AD9DD-F59F-4017-9382-8B52F7956251}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{669AD9DD-F59F-4017-9382-8B52F7956251}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{669AD9DD-F59F-4017-9382-8B52F7956251}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{669AD9DD-F59F-4017-9382-8B52F7956251}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
