@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>Malfurion.EntityFramework</PackageId>
-    <Version>7.0.5.1</Version>
+    <Version>7.0.5.2</Version>
     <Authors>Bransoft</Authors>
   </PropertyGroup>
 
