@@ -1,22 +1,28 @@
 Gtihub: https://github.com/Jiakuo0x/Malfurion.EntityFramework
 
 # Instructions for use
-Use for context
+## Create a context
+This operation is necessary.
 ``` csharp
 using Malfurion.EntityFramework;
 
 public class TestContext : DbContextBase
 {
     public TestContext(DbContextOptions options) : base(options) { }
-    public DbSet<Student>? Students { get; set; }
-    public DbSet<User>? Users { get; set; }
 }
 ```
 
-Use for model
-The system will automatically update the time of 'Created' and 'LastUpdated'
+## Create a model
+If you create a model that based on **EntityBase**,
+the system will automatically update the 'Created' and 'LastUpdated' timestamps in your database.
 ``` csharp
 using Malfurion.EntityFramework.Models;
+
+public class User : EntityBase
+{
+    public string Username { get; set; } = string.Empty;
+    public string Password { get; set; } = string.Empty;
+}
 
 public class User : EntityBase<Guid>
 {
@@ -25,8 +31,10 @@ public class User : EntityBase<Guid>
 }
 ```
 
-Using delete tags
-The deletion operation will no longer be deleted in the database, but will be marked as deleted and will no longer be queried during the query. If you need to query the deleted data, you need to use 'IgnoreQueryFilters()'.
+## Create a pseudo deletion model
+
+First, your model needs to inherit from **EntityBase**. Secondly, you need to inherit the **IPseudoDeletion** interface. In doing so, your deletion operation will not actually delete the data from the database, but instead mark it, and this marked data will not be retrieved in queries.   
+If you need to query the deleted data, you should use the **IgnoreQueryFilters()** methoed.
 ``` csharp
 public class Student : EntityBase, IPseudoDeletion
 {
