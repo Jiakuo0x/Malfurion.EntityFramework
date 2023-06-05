@@ -8,28 +8,14 @@ public class DbContextBase : DbContext
     public DbContextBase(DbContextOptions options) : base(options) { }
     public override int SaveChanges()
     {
-        var entries = this.ChangeTracker.Entries()
-            .Where(i => i.State is not EntityState.Unchanged);
-
-        var utcTime = DateTime.UtcNow;
-        foreach (var entry in entries)
-        {
-            if (entry.Entity is not Models.EntityBase model)
-                continue;
-
-            if (entry.State is EntityState.Added)
-                model.Created = utcTime;
-
-            if (entry.State is EntityState.Deleted && model is Models.IPseudoDeletion delModel)
-            {
-                entry.State = EntityState.Modified;
-                delModel.IsDeleted = true;
-            }
-
-            model.LastUpdated = utcTime;
-        }
-
+        this.PreSaveChanges();
         return base.SaveChanges();
+    }
+
+    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    {
+        this.PreSaveChanges();
+        return await base.SaveChangesAsync();
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
