@@ -32,8 +32,9 @@ public class User : EntityBase<Guid>
 ```
 
 ## Create a pseudo deletion model
-
-First, your model needs to inherit from **EntityBase**. Secondly, you need to inherit the **IPseudoDeletion** interface. In doing so, your deletion operation will not actually delete the data from the database, but instead mark it, and this marked data will not be retrieved in queries.   
+First, your model needs to inherit from **EntityBase**.  
+Secondly, you need to inherit the **IPseudoDeletion** interface.   
+In doing so, your deletion operation will not actually delete the data from the database, but instead mark it, and this marked data will not be retrieved in queries.   
 If you need to query the deleted data, you should use the **IgnoreQueryFilters()** methoed.
 ``` csharp
 public class Student : EntityBase, IPseudoDeletion
